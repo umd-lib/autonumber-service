@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @name.initials %> (Name)</h1>
+<p>
+  <strong>Initials:</strong>
+  <%= @name.initials %>
+</p>
+
+<p>
+  <strong>Auto Numbers:</strong>
+</p>
+<ul>
+  <% @name.auto_numbers.each do |auto_number| %>
+    <li><%= link_to(auto_number.id, auto_number_path(auto_number)) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_name_path(@name) %> |
+<%= link_to 'All Names', names_path %>

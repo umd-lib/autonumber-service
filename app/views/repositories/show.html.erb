@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @repository.name %> (Repository)</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @repository.name %>
+</p>
+
+<p>
+  <strong>Auto Numbers:</strong>
+</p>
+<ul>
+  <% @repository.auto_numbers.each do |auto_number| %>
+    <li><%= link_to(auto_number.id, auto_number_path(auto_number)) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'All Repositories', repositories_path %>

@@ -1,0 +1,2 @@
+module AutoNumbersHelper
+end
