@@ -5,41 +5,49 @@ class AutoNumbersControllerTest < ActionController::TestCase
     @auto_number = auto_numbers(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:auto_numbers)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create auto_number" do
+  test 'should create auto_number' do
     assert_difference('AutoNumber.count') do
-      post :create, auto_number: { entry_date: @auto_number.entry_date, name_id: @auto_number.name_id, repository_id: @auto_number.repository_id }
+      post :create, auto_number: {
+        entry_date: @auto_number.entry_date,
+        name_id: @auto_number.name_id,
+        repository_id: @auto_number.repository_id
+      }
     end
 
     assert_redirected_to auto_number_path(assigns(:auto_number))
   end
 
-  test "should show auto_number" do
+  test 'should show auto_number' do
     get :show, id: @auto_number
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @auto_number
     assert_response :success
   end
 
-  test "should update auto_number" do
-    patch :update, id: @auto_number, auto_number: { entry_date: @auto_number.entry_date, name_id: @auto_number.name_id, repository_id: @auto_number.repository_id }
+  test 'should update auto_number' do
+    patch :update, id: @auto_number, auto_number: {
+      entry_date: @auto_number.entry_date,
+      name_id: @auto_number.name_id,
+      repository_id: @auto_number.repository_id
+    }
     assert_redirected_to auto_number_path(assigns(:auto_number))
   end
 
-  test "should destroy auto_number" do
+  test 'should destroy auto_number' do
     assert_difference('AutoNumber.count', -1) do
       delete :destroy, id: @auto_number
     end

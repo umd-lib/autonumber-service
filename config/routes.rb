@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   resources :auto_numbers
-  resources :auto_numbers
   resources :names
-  resources :auto_numbers
-  resources :auto_numbers
-  resources :auto_numbers
   resources :repositories
-  resources :initials
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
