@@ -1,0 +1,24 @@
+<h1>New Batch of Auto Numbers</h1>
+<p id="notice"><%= notice %></p>
+
+<%= form_for(:batch, url: batch_path ) do |f| %>
+  <div class="field">
+    <%= f.label :entry_date %><br>
+    <%= f.date_select :entry_date %>
+  </div>
+  <div class="field">
+    <%= f.label :name_id %><br>
+    <%= collection_select(:batch, :name_id, Name.all, :id, :initials) %>
+  </div>
+  <div class="field">
+    <%= f.label :repository_id %><br>
+    <%= collection_select(:batch, :repository_id, Repository.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Auto Numbers' %>
+  </div>
+<% end %>
