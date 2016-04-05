@@ -1,5 +1,8 @@
 # Auto Number class.
 class AutoNumber < ActiveRecord::Base
+  validates :name, presence: true
+  validates :repository, presence: true
+
   belongs_to :name
   belongs_to :repository
 

@@ -2,13 +2,13 @@
 
 one:
   entry_date: 2016-03-31
-  name_id: 
-  repository_id: 
+  name: one
+  repository: one 
 
 two:
   entry_date: 2016-03-31
-  name_id: 
-  repository_id: 
+  name: two
+  repository: two 
 
 <% today = Date.new %>
 <% 30.times do |n| %>
