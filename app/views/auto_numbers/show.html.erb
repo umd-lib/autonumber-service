@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @auto_number.id %> (Auto Number)</h1>
+<p>
+  <strong>Entry date:</strong>
+  <%= @auto_number.entry_date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= link_to @auto_number.name, @auto_number.name %>
+</p>
+
+<p>
+  <strong>Repository:</strong>
+  <%= link_to @auto_number.repository, @auto_number.repository %>
+</p>
+
+<%= link_to 'Edit', edit_auto_number_path(@auto_number) %> |
+<%= link_to 'All Auto Numbers', auto_numbers_path %>

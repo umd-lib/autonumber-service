@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Auto Numbers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Entry date</th>
+      <th>Name</th>
+      <th>Repository</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auto_numbers.each do |auto_number| %>
+      <tr>
+        <td><%= auto_number.id %></td>
+        <td><%= auto_number.entry_date %></td>
+        <td><%= link_to auto_number.name, auto_number.name %></td>
+        <td><%= link_to auto_number.repository, auto_number.repository %></td>
+        <td><%= link_to 'Show', auto_number %></td>
+        <td><%= link_to 'Edit', edit_auto_number_path(auto_number) %></td>
+        <td><%= link_to 'Destroy', auto_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auto number', new_auto_number_path %>
