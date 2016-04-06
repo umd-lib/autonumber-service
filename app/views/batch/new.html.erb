@@ -1,5 +1,10 @@
 <h1>New Batch of Auto Numbers</h1>
-<p id="notice"><%= notice %></p>
+<% if flash[:count] %>
+  <p id="notice">Created <%= pluralize(flash[:count], 'new number') %> <%= display_range(flash[:first], flash[:last]) %></p>
+<% end %>
+<% if flash[:error] %>
+  <p id="error_explanation"><%= flash[:error] %></p>
+<% end %>
 
 <%= form_for(:batch, url: batch_path ) do |f| %>
   <div class="field">
