@@ -2,8 +2,14 @@
 <% if flash[:count] %>
   <p id="notice">Created <%= pluralize(flash[:count], 'new number') %> <%= display_range(flash[:first], flash[:last]) %></p>
 <% end %>
-<% if flash[:error] %>
-  <p id="error_explanation"><%= flash[:error] %></p>
+<% if flash[:errors] %>
+  <div id="error_explanation">
+    <ul>
+      <% flash[:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= form_for(:batch, url: batch_path ) do |f| %>
