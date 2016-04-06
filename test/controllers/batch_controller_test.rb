@@ -32,7 +32,7 @@ class BatchControllerTest < ActionController::TestCase
         repository_id: @auto_number.repository_id
       }
     end
-    # TODO: assert there is an error message
+    assert_equal 'Quantity must be greater than 0', flash[:error]
   end
 
   test 'require non-negative quantity' do
@@ -44,6 +44,6 @@ class BatchControllerTest < ActionController::TestCase
         quantity: -10
       }
     end
-    # TODO: assert there is an error message
+    assert_equal 'Quantity must be greater than 0', flash[:error]
   end
 end
