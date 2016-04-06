@@ -4,7 +4,7 @@ class AutoNumbersController < ApplicationController
   # GET /auto_numbers
   # GET /auto_numbers.json
   def index
-    @auto_numbers = AutoNumber.all
+    @auto_numbers = AutoNumber.paginate(page: params[:page])
   end
 
   # GET /auto_numbers/1
