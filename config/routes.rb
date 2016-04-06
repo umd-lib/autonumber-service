@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :auto_numbers
   resources :names
   resources :repositories
+
+  get 'batch' => 'batch#new'
+  post 'batch' => 'batch#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
