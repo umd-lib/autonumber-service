@@ -5,3 +5,8 @@ one:
 
 two:
   initials: MyString
+
+<% 30.times do |n| %>
+name_<%= n %>:
+  initials: MyString
+<% end %>
