@@ -1,7 +1,8 @@
 require 'test_helper'
 
+# Integration test for the Auto Numbers index
 class AutoNumberIndexTest < ActionDispatch::IntegrationTest
-  test "index including pagination" do
+  test 'index including pagination' do
     get auto_numbers_path
     assert_template 'auto_numbers/index'
     assert_select 'div.pagination'
