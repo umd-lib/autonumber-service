@@ -18,6 +18,6 @@ bundle install --path vendor
 rails server
 ```
 
-<http://localhost:3000/auto_number>
+<http://localhost:3000/auto_numbers>
 
 [1]: https://github.com/umd-lib/grails-services
