@@ -37,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :test do
   gem 'rubocop'
   gem 'minitest-reporters', '1.0.5'
+  gem 'faker'
 end
 
 group :development, :test do
