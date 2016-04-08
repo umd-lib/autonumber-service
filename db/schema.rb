@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20160331165944) do
   add_index "auto_numbers", ["name_id"], name: "index_auto_numbers_on_name_id"
   add_index "auto_numbers", ["repository_id"], name: "index_auto_numbers_on_repository_id"
 
-  create_table "initials", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "names", force: :cascade do |t|
     t.string   "initials"
     t.datetime "created_at", null: false

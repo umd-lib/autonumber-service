@@ -4,7 +4,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.all
+    @repositories = Repository.paginate(page: params[:page])
   end
 
   # GET /repositories/1

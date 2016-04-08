@@ -5,3 +5,8 @@ one:
 
 two:
   name: MyString
+
+<% 30.times do |n| %>
+repository_<%= n %>:
+  name: MyString
+<% end %>
