@@ -1,0 +1,25 @@
+$umd-red: #c91010;
+
+#header {
+    width: 100%;
+    border-bottom: 5px solid $umd-red;
+    margin-bottom: 5px;
+    h1 {
+        margin: .25em 0;
+        a:link, a:visited {
+            color: #333;
+        }
+        img {
+            vertical-align: middle;
+            padding-right: .25em;
+        }
+    }
+}
+
+a:link {
+    color: $umd-red;
+}
+a:hover {
+    background: $umd-red;
+    color: white !important;
+}
