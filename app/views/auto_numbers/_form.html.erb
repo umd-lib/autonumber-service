@@ -1,29 +1,42 @@
 <%= form_for(@auto_number) do |f| %>
   <% if @auto_number.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@auto_number.errors.count, "error") %> prohibited this auto_number from being saved:</h2>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@auto_number.errors.count, "error") %> prohibited this auto_number from being saved:</h2>
+      </div>
+      <div class="panel-body">
 
-      <ul>
-      <% @auto_number.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @auto_number.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :entry_date %><br>
-    <%= f.date_select :entry_date %>
-  </div>
-  <div class="field">
-    <%= f.label :name_id %><br>
-    <%= collection_select(:auto_number, :name_id, Name.all, :id, :initials) %>
-  </div>
-  <div class="field">
-    <%= f.label :repository_id %><br>
-    <%= collection_select(:auto_number, :repository_id, Repository.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th><%= f.label :entry_date %></th>
+      <td><%= f.date_select :entry_date %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :name_id %></th>
+      <td><%= collection_select(:auto_number, :name_id, Name.all, :id, :initials) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :repository_id %></th>
+      <td><%= collection_select(:auto_number, :repository_id, Repository.all, :id, :name) %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Cancel', @auto_number, class: 'btn btn-danger' %>
+        <%= link_to 'List All Auto Numbers', auto_numbers_path, class: 'btn btn-default' %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 <% end %>

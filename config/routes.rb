@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'batch#new'
+
   resources :auto_numbers
   resources :names
   resources :repositories

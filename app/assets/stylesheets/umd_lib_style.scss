@@ -1,25 +1,31 @@
 $umd-red: #c91010;
 
-#header {
-    width: 100%;
-    border-bottom: 5px solid $umd-red;
-    margin-bottom: 5px;
-    h1 {
-        margin: .25em 0;
-        a:link, a:visited {
-            color: #333;
-        }
-        img {
-            vertical-align: middle;
-            padding-right: .25em;
-        }
+$brand-primary: $umd-red;
+$navbar-inverse-bg: $umd-red;
+$navbar-inverse-link-color: white;
+$navbar-inverse-color: black;
+
+$logo-height: 61px;
+$navbar-height: $logo-height + 10px;
+
+.logo {
+    padding: 5px;
+}
+body {
+    padding-top: $navbar-height + 10px;
+}
+.btn-group {
+    // remove the extra margins from the will_paginate widget
+    // so it will align with the other buttons in the toolbar
+    .pagination {
+        margin: 0;
     }
 }
 
-a:link {
-    color: $umd-red;
-}
-a:hover {
-    background: $umd-red;
-    color: white !important;
+.field_with_errors {
+    input, select {
+        // color is state-danger-text
+        // bootstrap-sass doesn't seem to have that variable defined
+        border: 2px solid #a94442;
+    }
 }

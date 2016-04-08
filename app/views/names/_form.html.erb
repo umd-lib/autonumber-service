@@ -1,21 +1,35 @@
 <%= form_for(@name) do |f| %>
   <% if @name.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
+      </div>
+      <div class="panel-body">
 
-      <ul>
-      <% @name.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @name.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :initials %><br>
-    <%= f.text_field :initials %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>
+        <%= f.label :initials %></th>
+      <td><%= f.text_field :initials %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Cancel', @name, class: 'btn btn-danger' %>
+        <%= link_to 'List All Names', names_path, class: 'btn btn-default' %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 <% end %>

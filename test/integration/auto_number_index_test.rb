@@ -5,9 +5,9 @@ class AutoNumberIndexTest < ActionDispatch::IntegrationTest
   test 'index including pagination' do
     get auto_numbers_path
     assert_template 'auto_numbers/index'
-    assert_select 'div.pagination'
+    assert_select '.pagination'
     AutoNumber.paginate(page: 1).each do |auto_number|
-      assert_select 'a[href=?]', auto_number_path(auto_number), text: 'Show'
+      assert_select 'a[href=?]', auto_number_path(auto_number), text: auto_number.id.to_s
     end
   end
 end
