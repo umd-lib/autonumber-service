@@ -23,4 +23,49 @@ class BatchControllerTest < ActionController::TestCase
 
     assert_redirected_to batch_path
   end
+
+  test 'require name' do
+    assert_difference('AutoNumber.count', 0) do
+      post :create, batch: {
+        entry_date: @auto_number.entry_date,
+        repository_id: @auto_number.repository_id,
+        quantity: 10
+      }
+    end
+    assert flash[:errors].include?('Name is required')
+  end
+
+  test 'require repository' do
+    assert_difference('AutoNumber.count', 0) do
+      post :create, batch: {
+        entry_date: @auto_number.entry_date,
+        name_id: @auto_number.name_id,
+        quantity: 10
+      }
+    end
+    assert flash[:errors].include?('Repository is required')
+  end
+
+  test 'require non-nil quantity' do
+    assert_difference('AutoNumber.count', 0) do
+      post :create, batch: {
+        entry_date: @auto_number.entry_date,
+        name_id: @auto_number.name_id,
+        repository_id: @auto_number.repository_id
+      }
+    end
+    assert flash[:errors].include?('Quantity must be greater than 0')
+  end
+
+  test 'require non-negative quantity' do
+    assert_difference('AutoNumber.count', 0) do
+      post :create, batch: {
+        entry_date: @auto_number.entry_date,
+        name_id: @auto_number.name_id,
+        repository_id: @auto_number.repository_id,
+        quantity: -10
+      }
+    end
+    assert flash[:errors].include?('Quantity must be greater than 0')
+  end
 end
