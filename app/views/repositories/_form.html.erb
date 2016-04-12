@@ -1,19 +1,5 @@
 <%= form_for(@repository) do |f| %>
-  <% if @repository.errors.any? %>
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <h2 class="panel-title"><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
-      </div>
-      <div class="panel-body">
-
-        <ul>
-          <% @repository.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'form_errors', errors: @repository.errors %>
 
   <table class="table table-striped">
     <tbody>

@@ -1,19 +1,5 @@
 <%= form_for(@name) do |f| %>
-  <% if @name.errors.any? %>
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <h2 class="panel-title"><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
-      </div>
-      <div class="panel-body">
-
-        <ul>
-          <% @name.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'form_errors', errors: @name.errors %>
 
   <table class="table table-striped">
     <tbody>
