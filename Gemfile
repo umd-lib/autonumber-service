@@ -16,8 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.0.6'
 
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'will_paginate-bootstrap'
+
+gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', branch: 'develop'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
