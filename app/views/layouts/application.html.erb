@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Autonumber</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= link_to 'Auto Numbers', auto_numbers_path %> |
-<%= link_to 'Names', names_path %> |
-<%= link_to 'Repositories', repositories_path %>
-
-<%= yield %>
-
-</body>
-</html>
+<% provide :app_name, 'Autonumber Service' %>
+<% content_for :navbar do %>
+  <ul class="nav navbar-nav">
+    <li class="<%= 'active' if current_page?(auto_numbers_path) %>"><%= link_to 'Auto Numbers', auto_numbers_path %></li>
+    <li class="<%= 'active' if current_page?(names_path) %>"><%= link_to 'Names', names_path %></li>
+    <li class="<%= 'active' if current_page?(repositories_path) %>"><%= link_to 'Repositories', repositories_path %></li>
+  </ul>
+<% end %>
+<%= render 'layouts/umd_lib' %>

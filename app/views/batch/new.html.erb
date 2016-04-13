@@ -1,9 +1,12 @@
-<h1>New Batch of Auto Numbers</h1>
+<div class="page-heading">
+  <h1>Create Multiple Auto Numbers</h1>
+</div>
+
 <% if flash[:count] %>
-  <p id="notice">Created <%= pluralize(flash[:count], 'new number') %> <%= display_range(flash[:first], flash[:last]) %></p>
+  <div class="alert alert-success">Created <%= pluralize(flash[:count], 'new number') %> <%= display_range(flash[:first], flash[:last]) %></div>
 <% end %>
 <% if flash[:errors] %>
-  <div id="error_explanation">
+  <div class="alert alert-danger">
     <ul>
       <% flash[:errors].each do |msg| %>
         <li><%= msg %></li>
@@ -13,23 +16,29 @@
 <% end %>
 
 <%= form_for(:batch, url: batch_path ) do |f| %>
-  <div class="field">
-    <%= f.label :entry_date %><br>
-    <%= f.date_select :entry_date %>
-  </div>
-  <div class="field">
-    <%= f.label :name_id %><br>
-    <%= collection_select(:batch, :name_id, Name.all, :id, :initials) %>
-  </div>
-  <div class="field">
-    <%= f.label :repository_id %><br>
-    <%= collection_select(:batch, :repository_id, Repository.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Create Auto Numbers' %>
-  </div>
+  <table class="table table-striped">
+    <tbody>
+    <tr class="field">
+      <th>
+        <%= f.label :entry_date %></th>
+      <td><%= f.date_select :entry_date %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :name_id %></th>
+      <td><%= collection_select(:batch, :name_id, Name.all, :id, :initials) %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :repository_id %></th>
+      <td><%= collection_select(:batch, :repository_id, Repository.all, :id, :name) %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :quantity %></th>
+      <td><%= f.number_field :quantity, min: 1, value: 1 %></td>
+    </tr>
+    <tr class="actions">
+      <th></th>
+      <td><%= f.submit 'Create Auto Numbers', class: 'btn btn-success' %></td>
+    </tr>
+    </tbody>
+  </table>
 <% end %>

@@ -1,31 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Repositories</h1>
+</div>
 
-<h1>Listing Repositories</h1>
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <%= will_paginate renderer: BootstrapPagination::Rails %>
+  </div>
+  <%= link_to 'New', new_repository_path, class: 'btn btn-success' %>
+</div>
 
-<%= will_paginate %>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @repositories.each do |repository| %>
       <tr>
-        <td><%= repository.name %></td>
-        <td><%= link_to 'Show', repository %></td>
-        <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
-        <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to repository.name, repository %></td>
+        <td>
+          <%= link_to 'Edit', edit_repository_path(repository), class: 'btn btn-info' %>
+          <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate %>
-
-<br>
-
-<%= link_to 'New Repository', new_repository_path %>
+<%= will_paginate renderer: BootstrapPagination::Rails %>
