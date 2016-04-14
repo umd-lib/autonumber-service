@@ -27,7 +27,11 @@
         <td><%= link_to name.initials, name %></td>
         <td>
           <%= link_to 'Edit', edit_name_path(name), class: 'btn btn-info' %>
-          <%= link_to 'Delete', name, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% if !name.auto_numbers.any? %>
+            <%= link_to 'Delete', name, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% else %>
+            <button class="btn btn-danger" disabled="disabled">Delete</button>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -27,7 +27,11 @@
         <td><%= link_to repository.name, repository %></td>
         <td>
           <%= link_to 'Edit', edit_repository_path(repository), class: 'btn btn-info' %>
-          <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% if !repository.auto_numbers.any? %>
+            <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% else %>
+            <button class="btn btn-danger" disabled="disabled">Delete</button>
+          <% end %>
         </td>
       </tr>
     <% end %>
