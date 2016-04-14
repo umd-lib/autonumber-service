@@ -56,10 +56,20 @@ class NamesController < ApplicationController
   # DELETE /names/1
   # DELETE /names/1.json
   def destroy
-    @name.destroy
+    begin
+      @name.destroy
+      deleted = true
+    rescue ActiveRecord::DeleteRestrictionError
+      deleted = false
+    end
     respond_to do |format|
-      format.html { redirect_to names_url, notice: 'Name was successfully destroyed.' }
-      format.json { head :no_content }
+      if deleted
+        format.html { redirect_to names_url, notice: 'Name was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to names_url, flash: { error: 'Name cannot be removed because it has associated Auto Numbers' } }
+        format.json { render json: [ error ], status: :unprocessable_entity }
+      end
     end
   end
 

@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
+
 <div class="page-header">
   <h1>Names</h1>
 </div>

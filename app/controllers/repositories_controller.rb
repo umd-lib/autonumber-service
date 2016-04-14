@@ -56,10 +56,20 @@ class RepositoriesController < ApplicationController
   # DELETE /repositories/1
   # DELETE /repositories/1.json
   def destroy
-    @repository.destroy
+    begin
+      @repository.destroy
+      deleted = true
+    rescue ActiveRecord::DeleteRestrictionError
+      deleted = false
+    end
     respond_to do |format|
-      format.html { redirect_to repositories_url, notice: 'Repository was successfully destroyed.' }
-      format.json { head :no_content }
+      if deleted
+        format.html { redirect_to repositories_url, notice: 'Repository was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to repositories_url, flash: { error: 'Repository cannot be removed because it has associated Auto Numbers' } }
+        format.json { render json: [ error ], status: :unprocessable_entity }
+      end
     end
   end
 
