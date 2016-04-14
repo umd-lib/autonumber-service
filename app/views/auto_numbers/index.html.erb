@@ -13,10 +13,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Number</th>
-      <th>Entry date</th>
-      <th>Name</th>
-      <th>Repository</th>
+      <th><%= sort_link(@q, :id, 'Number') %></th>
+      <th><%= sort_link(@q, :entry_date) %></th>
+      <th><%= sort_link(@q, :name_initials, 'Name') %></th>
+      <th><%= sort_link(@q, :repository_name, 'Repository') %></th>
       <th></th>
     </tr>
   </thead>

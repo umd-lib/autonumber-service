@@ -4,7 +4,9 @@ class NamesController < ApplicationController
   # GET /names
   # GET /names.json
   def index
-    @names = Name.paginate(page: params[:page])
+    @q = Name.ransack(params[:q])
+    @q.sorts = 'initials asc' if @q.sorts.empty?
+    @names = @q.result.page(params[:page])
   end
 
   # GET /names/1
