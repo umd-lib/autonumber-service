@@ -39,9 +39,19 @@ class NamesControllerTest < ActionController::TestCase
     assert_redirected_to name_path(assigns(:name))
   end
 
-  test 'should destroy name' do
-    assert_difference('Name.count', -1) do
+  test 'should not destroy name with auto_numbers' do
+    assert_difference('Name.count', 0) do
       delete :destroy, id: @name
+    end
+
+    assert_redirected_to names_path
+  end
+
+  test 'should destroy name without auto_numbers' do
+    new_name = Name.create(initials: 'pme')
+
+    assert_difference('Name.count', -1) do
+      delete :destroy, id: new_name
     end
 
     assert_redirected_to names_path

@@ -39,9 +39,18 @@ class RepositoriesControllerTest < ActionController::TestCase
     assert_redirected_to repository_path(assigns(:repository))
   end
 
-  test 'should destroy repository' do
-    assert_difference('Repository.count', -1) do
+  test 'should not destroy repository with auto_numbers' do
+    assert_difference('Repository.count', 0) do
       delete :destroy, id: @repository
+    end
+
+    assert_redirected_to repositories_path
+  end
+
+  test 'should destroy repository without auto_numbers' do
+    new_repository = Repository.create(name: 'foobar')
+    assert_difference('Repository.count', -1) do
+      delete :destroy, id: new_repository
     end
 
     assert_redirected_to repositories_path
