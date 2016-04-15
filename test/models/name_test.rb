@@ -15,4 +15,20 @@ class NameTest < ActiveSupport::TestCase
     name.reload
     assert_equal name.initials, 'pme'
   end
+
+  test 'name without auto_numbers can be deleted' do
+    name = Name.create(initials: 'pme')
+    assert_nothing_raised ActiveRecord::DeleteRestrictionError do
+      name.destroy
+    end
+  end
+
+  test 'name with auto_numbers cannot be deleted' do
+    name = Name.create(initials: 'pme')
+    repository = Repository.create(name: 'test')
+    AutoNumber.create(name: name, repository: repository)
+    assert_raise ActiveRecord::DeleteRestrictionError do
+      name.destroy
+    end
+  end
 end
