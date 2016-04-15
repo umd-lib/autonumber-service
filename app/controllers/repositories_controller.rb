@@ -4,7 +4,9 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.paginate(page: params[:page])
+    @q = Repository.ransack(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
+    @repositories = @q.result.page(params[:page])
   end
 
   # GET /repositories/1

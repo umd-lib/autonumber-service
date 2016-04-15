@@ -4,7 +4,9 @@ class AutoNumbersController < ApplicationController
   # GET /auto_numbers
   # GET /auto_numbers.json
   def index
-    @auto_numbers = AutoNumber.paginate(page: params[:page])
+    @q = AutoNumber.ransack(params[:q])
+    @q.sorts = 'id asc' if @q.sorts.empty?
+    @auto_numbers = @q.result.page(params[:page])
   end
 
   # GET /auto_numbers/1
