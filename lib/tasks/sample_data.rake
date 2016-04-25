@@ -1,5 +1,3 @@
-require 'faker'
-
 namespace :db do
   desc 'Drop, create, migrate, seed and populate sample data'
   task reset_with_sample_data: [:drop, :create, :migrate, :seed, :populate_sample_data] do
@@ -8,6 +6,8 @@ namespace :db do
 
   desc 'Populates the database with sample data'
   task populate_sample_data: :environment do
+    require 'faker'
+
     # Sample data
     num_repositories = 50
     repositories = Faker::Lorem.words(num_repositories).uniq.shuffle
