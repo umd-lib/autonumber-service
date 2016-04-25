@@ -18,3 +18,4 @@
 
 # Dependencies
 /vendor/ruby
+/vendor/bundle
