@@ -19,3 +19,7 @@
 # Dependencies
 /vendor/ruby
 /vendor/bundle
+
+# Ignore .env .env.production
+.env
+.env.production

@@ -27,6 +27,9 @@ gem 'ransack'
 # See https://github.com/rubycas/rubycas-client-rails/issues/27
 gem 'rubycas-client', github: 'rubycas/rubycas-client', branch: 'master'
 
+# dotenv - For storing production configuration parameters
+gem 'dotenv-rails', '~> 2.1.1'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
