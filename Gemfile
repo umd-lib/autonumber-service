@@ -22,6 +22,11 @@ gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', branch: 'develop'
 
 gem 'ransack'
 
+# CAS Authentication
+# April 25, 2016: Need to use GitHub instead of Gem
+# See https://github.com/rubycas/rubycas-client-rails/issues/27
+gem 'rubycas-client', github: 'rubycas/rubycas-client', branch: 'master'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
