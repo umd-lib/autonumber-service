@@ -14,7 +14,7 @@ Requires:
 ```
 git clone git@github.com:umd-lib/autonumber-service
 cd autonumber-service
-bundle install --path vendor
+bundle install --without production --path vendor
 rails server
 ```
 
