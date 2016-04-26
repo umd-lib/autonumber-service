@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter CASClient::Frameworks::Rails::Filter
+  before_action CASClient::Frameworks::Rails::Filter
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
