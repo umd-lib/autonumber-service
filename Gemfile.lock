@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/umd-lib/umd_lib_style.git
-  revision: 92dd5955b777e2df2f196c647c6a004dc260073e
+  revision: 1726422ac553ec066f3dab1c01932e5ea56815ef
   branch: develop
   specs:
     umd_lib_style (0.0.1)
