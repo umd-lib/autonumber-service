@@ -17,6 +17,12 @@
     <td><%= link_to @auto_number.repository, @auto_number.repository %></td>
   </tr>
   <tr>
+    <th>File name</th>
+    <td>
+      <%= text_field_tag :file_name, @auto_number.file_name, readonly: true, id: 'copy-text' %>
+    </td>
+  </tr>
+  <tr>
     <th></th>
     <td>
 <%= link_to 'Edit', edit_auto_number_path(@auto_number), class: 'btn btn-info' %>
