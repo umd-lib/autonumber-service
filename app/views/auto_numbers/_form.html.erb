@@ -7,14 +7,18 @@
       <th><%= f.label :entry_date %></th>
       <td><%= f.date_select :entry_date %></td>
     </tr>
-    <tr>
-      <th><%= f.label :name_id %></th>
-      <td><%= collection_select(:auto_number, :name_id, Name.all, :id, :initials) %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :repository_id %></th>
-      <td><%= collection_select(:auto_number, :repository_id, Repository.all, :id, :name) %></td>
-    </tr>
+    <%= f.fields_for :name do |name_form| %>
+      <tr>
+        <th><%= name_form.label :name %></th>
+        <td><%= name_form.text_field :initials, value: @auto_number.name.initials %>
+      </tr>
+    <% end %>
+    <%= f.fields_for :repository do |repo_form| %>
+      <tr>
+        <th><%= repo_form.label :repository_name %></th>
+        <td><%= repo_form.text_field :name, value: @auto_number.repository.name %>
+      </tr>
+    <% end %>
     <tr>
       <th></th>
       <td>
@@ -25,4 +29,14 @@
     </tr>
     </tbody>
   </table>
+  <script type="text/javascript">
+$(function() {
+  $('#auto_number_name_initials').autocomplete({
+      source: '../names'
+  });
+  $('#auto_number_repository_name').autocomplete({
+    source: '../repositories'
+  });
+});
+  </script>
 <% end %>

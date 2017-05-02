@@ -3,8 +3,8 @@ class AutoNumber < ActiveRecord::Base
   validates :name, presence: true
   validates :repository, presence: true
 
-  belongs_to :name
-  belongs_to :repository
+  belongs_to :name, autosave: true
+  belongs_to :repository, autosave: true
 
   def file_name
     repository.to_s + '-' + id.to_s.rjust(6, '0')

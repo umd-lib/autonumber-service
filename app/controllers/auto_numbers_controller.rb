@@ -17,6 +17,8 @@ class AutoNumbersController < ApplicationController
   # GET /auto_numbers/new
   def new
     @auto_number = AutoNumber.new
+    @auto_number.name = Name.new
+    @auto_number.repository = Repository.new
   end
 
   # GET /auto_numbers/1/edit
@@ -27,6 +29,8 @@ class AutoNumbersController < ApplicationController
   # POST /auto_numbers.json
   def create
     @auto_number = AutoNumber.new(auto_number_params)
+    @auto_number.repository = Repository.find_or_create_by(name_param)
+    @auto_number.name = Name.find_or_create_by(initials_param)
 
     respond_to do |format|
       if @auto_number.save
@@ -72,6 +76,14 @@ class AutoNumbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auto_number_params
-      params.require(:auto_number).permit(:entry_date, :name_id, :repository_id)
+      params.require(:auto_number).permit(:entry_date, :repository, :name)
+    end
+
+    def name_param
+      params.require(:auto_number).require(:repository).permit(:name)
+    end
+
+    def initials_param
+      params.require(:auto_number).require(:name).permit(:initials)
     end
 end
