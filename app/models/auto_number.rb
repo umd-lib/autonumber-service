@@ -1,4 +1,4 @@
-# Auto Number class.
+# Autonumber class.
 class AutoNumber < ActiveRecord::Base
   validates :name, presence: true
   validates :repository, presence: true

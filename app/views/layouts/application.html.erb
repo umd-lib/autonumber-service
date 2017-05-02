@@ -1,7 +1,7 @@
-<% provide :app_name, 'Autonumber Service' %>
+<% provide :app_name, 'Autonumber Entry' %>
 <% content_for :navbar do %>
   <ul class="nav navbar-nav">
-    <li class="<%= 'active' if current_page?(auto_numbers_path) %>"><%= link_to 'Auto Numbers', auto_numbers_path %></li>
+    <li class="<%= 'active' if current_page?(auto_numbers_path) %>"><%= link_to 'Autonumber List', auto_numbers_path %></li>
     <li class="<%= 'active' if current_page?(names_path) %>"><%= link_to 'Names', names_path %></li>
     <li class="<%= 'active' if current_page?(repositories_path) %>"><%= link_to 'Repositories', repositories_path %></li>
   </ul>
