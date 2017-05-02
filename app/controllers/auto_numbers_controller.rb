@@ -30,7 +30,7 @@ class AutoNumbersController < ApplicationController
 
     respond_to do |format|
       if @auto_number.save
-        format.html { redirect_to @auto_number, notice: 'Auto number was successfully created.' }
+        format.html { redirect_to @auto_number, notice: "Created new number: #{@auto_number.file_name}" }
         format.json { render :show, status: :created, location: @auto_number }
       else
         format.html { render :new }

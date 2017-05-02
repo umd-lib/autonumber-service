@@ -3,7 +3,7 @@
 </div>
 
 <% if flash[:count] %>
-  <div class="alert alert-success">Created <%= pluralize(flash[:count], 'new number') %> <%= display_range(flash[:first], flash[:last]) %></div>
+  <div class="alert alert-success">Created <%= pluralize(flash[:count], 'new number') %>: <%= display_range(flash[:first], flash[:last]) %></div>
 <% end %>
 <% if flash[:errors] %>
   <div class="alert alert-danger">
