@@ -25,11 +25,11 @@
     </tr>
     <tr class="field">
       <th><%= f.label :name_id %></th>
-      <td><%= collection_select(:batch, :name_id, Name.all, :id, :initials) %></td>
+      <td><%= f.text_field :name_initials %></td>
     </tr>
     <tr class="field">
       <th><%= f.label :repository_id %></th>
-      <td><%= collection_select(:batch, :repository_id, Repository.all, :id, :name) %></td>
+      <td><%= f.text_field :repository_name %></td>
     </tr>
     <tr class="field">
       <th><%= f.label :quantity %></th>
@@ -42,3 +42,14 @@
     </tbody>
   </table>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('#batch_name_initials').autocomplete({
+        source: './names'
+    });
+    $('#batch_repository_name').autocomplete({
+      source: './repositories'
+    });
+  });
+</script>
