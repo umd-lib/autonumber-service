@@ -50,6 +50,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :test do
   gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter', '~> 0.2.0', require: false
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
   gem 'minitest-reporters', '1.0.5'
   gem 'faker'
 end
