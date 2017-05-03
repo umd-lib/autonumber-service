@@ -4,13 +4,9 @@ class NamesController < ApplicationController
   # GET /names
   # GET /names.json
   def index
-    if params[:term]
-      render json: Name.where('initials LIKE ?', "#{params[:term].downcase}%").map {|n| n.initials}
-    else
-      @q = Name.ransack(params[:q])
-      @q.sorts = 'initials asc' if @q.sorts.empty?
-      @names = @q.result.page(params[:page])
-    end
+    @q = Name.ransack(params[:q])
+    @q.sorts = 'initials asc' if @q.sorts.empty?
+    @names = @q.result.page(params[:page])
   end
 
   # GET /names/1

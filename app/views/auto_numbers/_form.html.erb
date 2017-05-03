@@ -32,10 +32,10 @@
   <script type="text/javascript">
 $(function() {
   $('#auto_number_name_initials').autocomplete({
-      source: '../names'
+    source: '<%= autocomplete_names_path %>'
   });
   $('#auto_number_repository_name').autocomplete({
-    source: '../repositories'
+    source: '<%= autocomplete_repositories_path %>'
   });
 });
   </script>

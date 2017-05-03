@@ -46,10 +46,10 @@
 <script type="text/javascript">
   $(function() {
     $('#batch_name_initials').autocomplete({
-        source: './names'
+      source: '<%= autocomplete_names_path %>'
     });
     $('#batch_repository_name').autocomplete({
-      source: './repositories'
+      source: '<%= autocomplete_repositories_path %>'
     });
   });
 </script>
