@@ -17,6 +17,10 @@
     <td><%= link_to @auto_number.repository, @auto_number.repository %></td>
   </tr>
   <tr>
+    <th>File name</th>
+    <td><%= @auto_number.file_name %></td>
+  </tr>
+  <tr>
     <th></th>
     <td>
 <%= link_to 'Edit', edit_auto_number_path(@auto_number), class: 'btn btn-info' %>
