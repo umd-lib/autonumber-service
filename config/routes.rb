@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root 'batch#new'
 
   resources :auto_numbers
