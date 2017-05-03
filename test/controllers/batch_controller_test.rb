@@ -15,8 +15,8 @@ class BatchControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count', quantity_to_add) do
       post :create, batch: {
         entry_date: @auto_number.entry_date,
-        name_id: @auto_number.name_id,
-        repository_id: @auto_number.repository_id,
+        name_initials: @auto_number.name.initials,
+        repository_name: @auto_number.repository.name,
         quantity: quantity_to_add
       }
     end
@@ -28,7 +28,7 @@ class BatchControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count', 0) do
       post :create, batch: {
         entry_date: @auto_number.entry_date,
-        repository_id: @auto_number.repository_id,
+        repository_name: @auto_number.repository.name,
         quantity: 10
       }
     end
@@ -39,7 +39,7 @@ class BatchControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count', 0) do
       post :create, batch: {
         entry_date: @auto_number.entry_date,
-        name_id: @auto_number.name_id,
+        name_initials: @auto_number.name.initials,
         quantity: 10
       }
     end
@@ -50,8 +50,8 @@ class BatchControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count', 0) do
       post :create, batch: {
         entry_date: @auto_number.entry_date,
-        name_id: @auto_number.name_id,
-        repository_id: @auto_number.repository_id
+        name_initials: @auto_number.name.initials,
+        repository_name: @auto_number.repository.name
       }
     end
     assert flash[:errors].include?('Quantity must be greater than 0')
@@ -61,8 +61,8 @@ class BatchControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count', 0) do
       post :create, batch: {
         entry_date: @auto_number.entry_date,
-        name_id: @auto_number.name_id,
-        repository_id: @auto_number.repository_id,
+        name_initials: @auto_number.name.initials,
+        repository_name: @auto_number.repository.name,
         quantity: -10
       }
     end
