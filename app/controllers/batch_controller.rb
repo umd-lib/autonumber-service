@@ -31,8 +31,8 @@ class BatchController < ApplicationController
 
     def auto_number_params
       batch_params.reject { |key| %w(name_initials repository_name).include?(key) }.merge(
-        repository: Repository.find_or_create_by(name: batch_params[:repository_name]),
-        name: Name.find_or_create_by(initials: batch_params[:name_initials])
+        repository: Repository.find_or_create_by(name: batch_params[:repository_name].downcase),
+        name: Name.find_or_create_by(initials: batch_params[:name_initials].downcase)
       )
     end
 

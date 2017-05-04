@@ -74,12 +74,12 @@ class AutoNumbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def known_params
-      params.require(:auto_number).permit(:entry_date, :repository, :name)
+      params.require(:auto_number).permit(:entry_date)
     end
 
     def auto_number_params
-      repository = Repository.find_or_create_by(name: known_params[:repository])
-      name = Name.find_or_create_by(initials: known_params[:name])
+      repository = Repository.find_or_create_by(name: params[:auto_number][:repository][:name].downcase)
+      name = Name.find_or_create_by(initials: params[:auto_number][:name][:initials].downcase)
       known_params.merge repository: repository, name: name
     end
 end

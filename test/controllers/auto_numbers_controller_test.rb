@@ -20,8 +20,8 @@ class AutoNumbersControllerTest < ActionController::TestCase
     assert_difference('AutoNumber.count') do
       post :create, auto_number: {
         entry_date: @auto_number.entry_date,
-        name: @auto_number.name.initials,
-        repository: @auto_number.repository.name
+        name: { initials: @auto_number.name.initials },
+        repository: { name: @auto_number.repository.name }
       }
     end
 
@@ -41,8 +41,8 @@ class AutoNumbersControllerTest < ActionController::TestCase
   test 'should update auto_number' do
     patch :update, id: @auto_number, auto_number: {
       entry_date: @auto_number.entry_date,
-      name: @auto_number.name.initials,
-      repository: @auto_number.repository.name
+      name: { initials: @auto_number.name.initials },
+      repository: { name: @auto_number.repository.name }
     }
     assert_redirected_to auto_number_path(assigns(:auto_number))
   end
