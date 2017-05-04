@@ -2,6 +2,9 @@ ruby '2.2.4'
 
 source 'https://rubygems.org'
 
+# use HTTPS for github repos (see https://bundler.io/git.html#security)
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -18,7 +21,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'will_paginate-bootstrap'
 
-gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', branch: 'develop'
+gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', ref: '0.2.0'
 
 gem 'ransack'
 
