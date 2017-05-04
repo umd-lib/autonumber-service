@@ -73,7 +73,7 @@ class NamesController < ApplicationController
       @name.destroy
       return true
     rescue ActiveRecord::DeleteRestrictionError
-      @error_msg = 'Name cannot be removed because it has associated Auto Numbers'
+      @error_msg = 'Name cannot be removed because it has associated Autonumbers'
       return false
     end
 

@@ -44,7 +44,7 @@ class AutoNumbersController < ApplicationController
   def update
     respond_to do |format|
       if @auto_number.update(auto_number_params)
-        format.html { redirect_to @auto_number, notice: 'Auto number was successfully updated.' }
+        format.html { redirect_to @auto_number, notice: 'Autonumber was successfully updated.' }
         format.json { render :show, status: :ok, location: @auto_number }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class AutoNumbersController < ApplicationController
   def destroy
     @auto_number.destroy
     respond_to do |format|
-      format.html { redirect_to auto_numbers_url, notice: 'Auto number was successfully destroyed.' }
+      format.html { redirect_to auto_numbers_url, notice: 'Autonumber was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
