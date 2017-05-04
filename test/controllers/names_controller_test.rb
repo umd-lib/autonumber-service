@@ -3,6 +3,7 @@ require 'test_helper'
 class NamesControllerTest < ActionController::TestCase
   setup do
     @name = names(:one)
+    @name.initials += 'foo'
   end
 
   test 'should get index' do

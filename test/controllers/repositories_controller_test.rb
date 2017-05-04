@@ -3,6 +3,7 @@ require 'test_helper'
 class RepositoriesControllerTest < ActionController::TestCase
   setup do
     @repository = repositories(:one)
+    @repository.name += 'foo'
   end
 
   test 'should get index' do

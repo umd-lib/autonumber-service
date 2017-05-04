@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  initials: MyString
+  initials: mystring
 
 two:
-  initials: MyString
+  initials: myotherstring
 
 <% 30.times do |n| %>
 name_<%= n %>:
-  initials: MyString
+  initials: mystring<%= n %>
 <% end %>
