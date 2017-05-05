@@ -17,6 +17,8 @@ class AutoNumbersController < ApplicationController
   # GET /auto_numbers/new
   def new
     @auto_number = AutoNumber.new
+    @auto_number.name = Name.new
+    @auto_number.repository = Repository.new
   end
 
   # GET /auto_numbers/1/edit
@@ -71,7 +73,13 @@ class AutoNumbersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    def known_params
+      params.require(:auto_number).permit(:entry_date)
+    end
+
     def auto_number_params
-      params.require(:auto_number).permit(:entry_date, :name_id, :repository_id)
+      repository = Repository.find_or_create_by(name: params[:auto_number][:repository][:name].downcase)
+      name = Name.find_or_create_by(initials: params[:auto_number][:name][:initials].downcase)
+      known_params.merge repository: repository, name: name
     end
 end

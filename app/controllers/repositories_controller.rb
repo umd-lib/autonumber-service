@@ -84,6 +84,9 @@ class RepositoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def repository_params
-      params.require(:repository).permit(:name)
+      allowed = params.require(:repository).permit(:name)
+      # force name to lowercase
+      allowed[:name].downcase!
+      allowed
     end
 end

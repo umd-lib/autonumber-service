@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get 'batch' => 'batch#new'
   post 'batch' => 'batch#create'
+
+  get 'autocomplete/names' => 'autocomplete#names'
+  get 'autocomplete/repositories' => 'autocomplete#repositories'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

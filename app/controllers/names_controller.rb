@@ -84,6 +84,9 @@ class NamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def name_params
-      params.require(:name).permit(:initials)
+      allowed = params.require(:name).permit(:initials)
+      # force initials to lowercase
+      allowed[:initials].downcase!
+      allowed
     end
 end
