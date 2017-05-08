@@ -11,6 +11,7 @@ namespace :db do
       Repository.find_or_create_by name: value
     end
     puts "Done (#{count})"
+    puts "Created #{Repository.count} repositories from #{count} rows"
 
     count = 0
     print 'Creating names'
@@ -20,6 +21,7 @@ namespace :db do
       Name.find_or_create_by initials: value
     end
     puts "Done (#{count})"
+    puts "Created #{Name.count} names from #{count} rows"
 
     count = 0
     print 'Creating autonumbers'
@@ -35,6 +37,7 @@ namespace :db do
       AutoNumber.create id: id, entry_date: date, name: name_for[name_id], repository: repository_for[repository_id]
     end
     puts "Done (#{count})"
+    puts "Created #{AutoNumber.count} autonumbers from #{count} rows"
   end
 end
 
@@ -53,7 +56,8 @@ def get_ids_for(opts)
   ids_for = {}
   CSV.foreach(File.path(opts[:file]), headers: true) do |row|
     id = row.field('id').to_i
-    value = row.field(opts[:valuefield]).downcase
+    value = row.field(opts[:valuefield]).downcase.strip
+    value = '[blank]' if value == ''
     ids_for[value] = [] unless ids_for.key? value
     ids_for[value] << id
   end
