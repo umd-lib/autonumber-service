@@ -1,4 +1,3 @@
-require 'csv'
 # lib/tasks/add_cas_user.rake
 namespace :db do
   desc 'Add a user'

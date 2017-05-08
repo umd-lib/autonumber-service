@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   private
 
     def whitelist_cas_user
-      render status: 403, text: 'Unauthorized' unless User.find_by cas_directory_id: session[:cas_user]
+      render(file: File.join(Rails.root, 'public/403.html'), status: :forbidden, layout: false) unless authorized
+    end
+
+    def authorized
+      User.find_by cas_directory_id: session[:cas_user]
     end
 end
