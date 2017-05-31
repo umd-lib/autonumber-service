@@ -1,0 +1,20 @@
+<%= form_for(@repository) do |f| %>
+  <%= render 'form_errors', errors: @repository.errors %>
+
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th><%= f.label :name %></th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Cancel', @repository, class: 'btn btn-danger' %>
+        <%= link_to 'List All Repositories', repositories_path, class: 'btn btn-default' %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>

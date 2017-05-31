@@ -1,0 +1,42 @@
+<%= form_for(@auto_number) do |f| %>
+  <%= render 'form_errors', errors: @auto_number.errors %>
+
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th><%= f.label :entry_date %></th>
+      <td><%= f.date_select :entry_date %></td>
+    </tr>
+    <%= f.fields_for :name do |name_form| %>
+      <tr>
+        <th><%= name_form.label :name %></th>
+        <td><%= name_form.text_field :initials, value: @auto_number.name.initials %>
+      </tr>
+    <% end %>
+    <%= f.fields_for :repository do |repo_form| %>
+      <tr>
+        <th><%= repo_form.label :repository_name %></th>
+        <td><%= repo_form.text_field :name, value: @auto_number.repository.name %>
+      </tr>
+    <% end %>
+    <tr>
+      <th></th>
+      <td>
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Cancel', @auto_number, class: 'btn btn-danger' %>
+        <%= link_to 'List All Autonumbers', auto_numbers_path, class: 'btn btn-default' %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <script type="text/javascript">
+$(function() {
+  $('#auto_number_name_initials').autocomplete({
+    source: '<%= autocomplete_names_path %>'
+  });
+  $('#auto_number_repository_name').autocomplete({
+    source: '<%= autocomplete_repositories_path %>'
+  });
+});
+  </script>
+<% end %>

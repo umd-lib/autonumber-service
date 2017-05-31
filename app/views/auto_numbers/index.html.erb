@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Autonumbers</h1>
+</div>
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <%= will_paginate renderer: BootstrapPagination::Rails %>
+  </div>
+  <%= link_to 'New', new_auto_number_path, class: 'btn btn-success' %>
+  <%= link_to 'Create Multiple Autonumbers', batch_path, class: 'btn btn-default' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :id, 'Number') %></th>
+      <th><%= sort_link(@q, :entry_date) %></th>
+      <th><%= sort_link(@q, :name_initials, 'Name') %></th>
+      <th><%= sort_link(@q, :repository_name, 'Repository') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auto_numbers.each do |auto_number| %>
+      <tr>
+        <td><%= link_to auto_number.id, auto_number %></td>
+        <td><%= auto_number.entry_date %></td>
+        <td><%= link_to auto_number.name, auto_number.name %></td>
+        <td><%= link_to auto_number.repository, auto_number.repository %></td>
+        <td>
+          <%= link_to 'Edit', edit_auto_number_path(auto_number), class: 'btn btn-info' %>
+          <%= link_to 'Delete', auto_number, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,19 @@
+<div class="page-heading">
+  <h1><%= @repository.name %> <small>Repository</small></h1>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+  <tr>
+    <th>Name</th>
+    <td><%= @repository.name %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <%= link_to 'Edit', edit_repository_path(@repository), class: 'btn btn-info' %>
+      <%= link_to 'List All Repositories', repositories_path, class: 'btn btn-default' %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry_date: 2016-03-31
+  name: one
+  repository: one 
+
+two:
+  entry_date: 2016-03-31
+  name: two
+  repository: two 
+
+<% today = Date.new %>
+<% 30.times do |n| %>
+auto_number_<%= n %>:
+  entry_date: <%= today %>
+  name: one
+  repository: one
+<% end %>

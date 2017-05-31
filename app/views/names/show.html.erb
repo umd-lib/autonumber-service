@@ -1,0 +1,19 @@
+<div class="page-heading">
+  <h1><%= @name %> <small>Name</small></h1>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+  <tr>
+    <th>Initials</th>
+    <td><%= @name.initials %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <%= link_to 'Edit', edit_name_path(@name), class: 'btn btn-info' %>
+      <%= link_to 'List All Names', names_path, class: 'btn btn-default' %>
+    </td>
+  </tr>
+  </tbody>
+</table>

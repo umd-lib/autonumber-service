@@ -1,0 +1,21 @@
+<%= form_for(@name) do |f| %>
+  <%= render 'form_errors', errors: @name.errors %>
+
+  <table class="table table-striped">
+    <tbody>
+    <tr>
+      <th>
+        <%= f.label :initials %></th>
+      <td><%= f.text_field :initials %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= f.submit class: 'btn btn-success' %>
+        <%= link_to 'Cancel', @name, class: 'btn btn-danger' %>
+        <%= link_to 'List All Names', names_path, class: 'btn btn-default' %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>

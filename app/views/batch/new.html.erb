@@ -1,0 +1,55 @@
+<div class="page-heading">
+  <h1>Create Multiple Autonumbers</h1>
+</div>
+
+<% if flash[:count] %>
+  <div class="alert alert-success">Created <%= pluralize(flash[:count], 'new number') %>: <%= display_range(flash[:first], flash[:last]) %></div>
+<% end %>
+<% if flash[:errors] %>
+  <div class="alert alert-danger">
+    <ul>
+      <% flash[:errors].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(:batch, url: batch_path ) do |f| %>
+  <table class="table table-striped">
+    <tbody>
+    <tr class="field">
+      <th>
+        <%= f.label :entry_date %></th>
+      <td><%= f.date_select :entry_date %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :name_id %></th>
+      <td><%= f.text_field :name_initials %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :repository_id %></th>
+      <td><%= f.text_field :repository_name %></td>
+    </tr>
+    <tr class="field">
+      <th><%= f.label :quantity %></th>
+      <td><%= f.number_field :quantity, min: 1, value: 1 %></td>
+    </tr>
+    <tr class="actions">
+      <th></th>
+      <td><%= f.submit 'Create Autonumbers', class: 'btn btn-success' %></td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('#batch_name_initials').autocomplete({
+      source: '<%= autocomplete_names_path %>'
+    });
+    $('#batch_repository_name').autocomplete({
+      source: '<%= autocomplete_repositories_path %>'
+    });
+  });
+</script>

@@ -1,0 +1,23 @@
+<div class="page-heading">
+  <h1><%= @user.name %> <small>User</small></h1>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+  <tr>
+    <th>CAS Directory ID</th>
+    <td><%= @user.cas_directory_id %></td>
+  </tr>
+  <tr>
+    <th>Name:</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-info' %>
+      <%= link_to 'List All Users', users_path, class: 'btn btn-default' %>
+    </td>
+  </tr>
+  </tbody>
+</table>

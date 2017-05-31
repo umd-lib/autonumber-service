@@ -1,0 +1,31 @@
+<div class="page-heading">
+  <h1><%= @auto_number.id %> <small>Autonumber</small></h1>
+</div>
+
+<table class="table table-striped">
+  <tbody>
+  <tr>
+    <th>Entry date</th>
+    <td><%= @auto_number.entry_date %></th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td><%= link_to @auto_number.name, @auto_number.name %></td>
+  </tr>
+  <tr>
+    <th>Repository</th>
+    <td><%= link_to @auto_number.repository, @auto_number.repository %></td>
+  </tr>
+  <tr>
+    <th>File name</th>
+    <td><%= @auto_number.file_name %></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+<%= link_to 'Edit', edit_auto_number_path(@auto_number), class: 'btn btn-info' %>
+<%= link_to 'List All Autonumbers', auto_numbers_path, class: 'btn btn-default' %>
+</td>
+  </tbody>
+</table>
+

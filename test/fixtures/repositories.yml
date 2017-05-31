@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: mystring
+
+two:
+  name: myotherstring
+
+<% 30.times do |n| %>
+repository_<%= n %>:
+  name: mystring<%= n %>
+<% end %>

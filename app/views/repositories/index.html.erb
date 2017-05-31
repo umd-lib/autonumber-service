@@ -1,0 +1,41 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
+
+<div class="page-header">
+  <h1>Repositories</h1>
+</div>
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <%= will_paginate renderer: BootstrapPagination::Rails %>
+  </div>
+  <%= link_to 'New', new_repository_path, class: 'btn btn-success' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repositories.each do |repository| %>
+      <tr>
+        <td><%= link_to repository.name, repository %></td>
+        <td>
+          <%= link_to 'Edit', edit_repository_path(repository), class: 'btn btn-info' %>
+          <% if !repository.auto_numbers.any? %>
+            <%= link_to 'Delete', repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% else %>
+            <button class="btn btn-danger" disabled="disabled">Delete</button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate renderer: BootstrapPagination::Rails %>
