@@ -25,4 +25,10 @@ class AutoNumberIndexTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  test 'index should include web accessibility link' do
+    get auto_numbers_path
+    assert_template 'auto_numbers/index'
+    assert_select 'a[href=?]', 'https://umd.edu/web-accessibility'
+  end
 end
