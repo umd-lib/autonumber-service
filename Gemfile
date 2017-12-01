@@ -21,7 +21,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'will_paginate-bootstrap'
 
-gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', ref: '0.2.0'
+gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', ref: '1.0.0'
 
 gem 'ransack'
 
