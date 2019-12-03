@@ -58,7 +58,7 @@ group :test do
   gem 'rubocop-checkstyle_formatter', '~> 0.2.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
-  gem 'minitest-reporters', '1.0.5'
+  gem 'minitest-reporters'
   gem 'faker'
 end
 

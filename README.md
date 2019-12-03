@@ -20,11 +20,19 @@ rails server
 
 <http://localhost:3000/auto_numbers>
 
+## Docker.ci and Jenkinsfile
+
+The "Dockerfile.ci" file is used to encapsulate the environment needed by the
+continuous integration (ci) server for building and testing the application.
+
+The "Jenkinsfile" provides the Jenkins pipeline steps for building and
+testing the application.
+
 ## Production Environment Configuration
 
 Requires:
 
-* Postgres client to be installed (on RedHat, the "postgresql" and 
+* Postgres client to be installed (on RedHat, the "postgresql" and
 "postgresql-devel" packages)
 
 The application uses the "dotenv" gem to configure the production environment.
