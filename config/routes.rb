@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   get 'autocomplete/names' => 'autocomplete#names'
   get 'autocomplete/repositories' => 'autocomplete#repositories'
+
+  get '/ping' => 'ping#verify'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
