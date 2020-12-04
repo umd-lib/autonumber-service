@@ -8,11 +8,11 @@ GIT
 
 GIT
   remote: https://github.com/umd-lib/umd_lib_style.git
-  revision: b7b3eccf4518935ebdc21107f2bdb9eb3eeb59a0
-  ref: 1.0.0
+  revision: d6bca204c40508cc94ed73930eff3a2f40c1f0b7
+  ref: 2.0.0
   specs:
-    umd_lib_style (0.2.0)
-      rails (~> 4.2.6)
+    umd_lib_style (2.0.0)
+      rails (>= 4.2.6)
 
 GEM
   remote: https://rubygems.org/
@@ -239,4 +239,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.16.0
+   1.17.3
