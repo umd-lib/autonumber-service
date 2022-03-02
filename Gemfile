@@ -1,4 +1,4 @@
-ruby '2.2.4'
+ruby '2.7.4'
 
 source 'https://rubygems.org'
 
@@ -6,7 +6,14 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 4.2.6'
+
+# NOTE: The following "bigdecimal" gem specification is required for
+# compatibility when using Ruby 2.6 or greater and Rails 4.x. It should be
+# removed when upgrading to Rails 5.x or beyond.
+# See https://stackoverflow.com/a/60491254
+gem 'bigdecimal', '~> 1.3.5'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
