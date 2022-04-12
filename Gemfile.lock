@@ -106,7 +106,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.11.3)
-    nokogiri (1.13.3)
+    nokogiri (1.13.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     parser (2.3.0.7)
