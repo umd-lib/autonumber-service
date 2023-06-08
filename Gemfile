@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7.2'
+gem 'rails', '~> 5.1.7'
 
 # NOTE: The following "bigdecimal" gem specification is required for
 # compatibility when using Ruby 2.6 or greater and Rails 4.x. It should be
@@ -22,7 +22,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.0.6'
@@ -39,7 +39,7 @@ gem 'ransack'
 gem 'rubycas-client', github: 'rubycas/rubycas-client', branch: 'master'
 
 # dotenv - For storing production configuration parameters
-gem 'dotenv-rails', '~> 2.1.1'
+gem 'dotenv-rails', '~> 2.2.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -51,6 +51,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'jquery-ui-rails'
+
+gem 'railties', '~> 5.1.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
