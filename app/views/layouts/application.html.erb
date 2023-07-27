@@ -1,4 +1,7 @@
 <% provide :app_name, 'Autonumber Entry' %>
+<% content_for :additional_head_content do %>
+  <%= csp_meta_tag %>
+<% end %>
 <% content_for :navbar do %>
   <ul class="nav navbar-nav">
     <li class="<%= 'active' if current_page?(auto_numbers_path) %>"><%= link_to 'Autonumber List', auto_numbers_path %></li>
