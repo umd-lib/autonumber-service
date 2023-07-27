@@ -1,4 +1,4 @@
-class CreateAutoNumbers < ActiveRecord::Migration
+class CreateAutoNumbers < ActiveRecord::Migration[4.2]
   def change
     create_table :auto_numbers do |t|
       t.date :entry_date

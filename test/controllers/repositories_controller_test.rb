@@ -19,30 +19,30 @@ class RepositoriesControllerTest < ActionController::TestCase
 
   test 'should create repository' do
     assert_difference('Repository.count') do
-      post :create, repository: { name: @repository.name }
+      post :create, params: { repository: { name: @repository.name } }
     end
 
     assert_redirected_to repository_path(assigns(:repository))
   end
 
   test 'should show repository' do
-    get :show, id: @repository
+    get :show, params: { id: @repository }
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, id: @repository
+    get :edit, params: { id: @repository }
     assert_response :success
   end
 
   test 'should update repository' do
-    patch :update, id: @repository, repository: { name: @repository.name }
+    patch :update, params: { id: @repository, repository: { name: @repository.name } }
     assert_redirected_to repository_path(assigns(:repository))
   end
 
   test 'should not destroy repository with auto_numbers' do
     assert_difference('Repository.count', 0) do
-      delete :destroy, id: @repository
+      delete :destroy, params: { id: @repository }
     end
 
     assert_redirected_to repositories_path
@@ -51,7 +51,7 @@ class RepositoriesControllerTest < ActionController::TestCase
   test 'should destroy repository without auto_numbers' do
     new_repository = Repository.create(name: 'foobar')
     assert_difference('Repository.count', -1) do
-      delete :destroy, id: new_repository
+      delete :destroy, params: { id: new_repository }
     end
 
     assert_redirected_to repositories_path

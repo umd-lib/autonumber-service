@@ -18,7 +18,7 @@ class NameTest < ActiveSupport::TestCase
 
   test 'name without auto_numbers can be deleted' do
     name = Name.create(initials: 'pme')
-    assert_nothing_raised ActiveRecord::DeleteRestrictionError do
+    assert_nothing_raised do
       name.destroy
     end
   end

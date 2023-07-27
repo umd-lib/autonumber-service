@@ -13,32 +13,32 @@
 ActiveRecord::Schema.define(version: 20170503181440) do
 
   create_table "auto_numbers", force: :cascade do |t|
-    t.date     "entry_date"
-    t.integer  "name_id"
-    t.integer  "repository_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.date "entry_date"
+    t.integer "name_id"
+    t.integer "repository_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name_id"], name: "index_auto_numbers_on_name_id"
     t.index ["repository_id"], name: "index_auto_numbers_on_repository_id"
   end
 
   create_table "names", force: :cascade do |t|
-    t.string   "initials"
+    t.string "initials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "repositories", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "cas_directory_id"
-    t.string   "name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string "cas_directory_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

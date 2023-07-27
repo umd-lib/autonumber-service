@@ -25,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate', '~> 4.0'
 
 gem 'will_paginate-bootstrap'
 
@@ -33,13 +33,15 @@ gem 'umd_lib_style', github: 'umd-lib/umd_lib_style', ref: '2.0.0'
 
 gem 'ransack'
 
+gem 'date', '~> 3.3.3'
+
 # CAS Authentication
 # April 25, 2016: Need to use GitHub instead of Gem
 # See https://github.com/rubycas/rubycas-client-rails/issues/27
 gem 'rubycas-client', github: 'rubycas/rubycas-client', branch: 'master'
 
 # dotenv - For storing production configuration parameters
-gem 'dotenv-rails', '~> 2.2.0'
+gem 'dotenv-rails', '~> 2.5.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,8 +49,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'jquery-ui-rails'
 
@@ -69,18 +69,21 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'minitest-reporters'
-  gem 'faker'
+  gem 'faker', '~> 1.6'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+	# Adds support for Capybara system testing and selenium driver
+	gem 'capybara', '>= 2.15'
+	gem 'selenium-webdriver'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1.1'
 end

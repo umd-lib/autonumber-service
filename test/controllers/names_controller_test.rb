@@ -19,30 +19,30 @@ class NamesControllerTest < ActionController::TestCase
 
   test 'should create name' do
     assert_difference('Name.count') do
-      post :create, name: { initials: @name.initials }
+      post :create, params: { name: { initials: @name.initials } }
     end
 
     assert_redirected_to name_path(assigns(:name))
   end
 
   test 'should show name' do
-    get :show, id: @name
+    get :show, params: { id: @name }
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, id: @name
+    get :edit, params: { id: @name }
     assert_response :success
   end
 
   test 'should update name' do
-    patch :update, id: @name, name: { initials: @name.initials }
+    patch :update, params: { id: @name, name: { initials: @name.initials } }
     assert_redirected_to name_path(assigns(:name))
   end
 
   test 'should not destroy name with auto_numbers' do
     assert_difference('Name.count', 0) do
-      delete :destroy, id: @name
+      delete :destroy, params: { id: @name }
     end
 
     assert_redirected_to names_path
@@ -52,7 +52,7 @@ class NamesControllerTest < ActionController::TestCase
     new_name = Name.create(initials: 'pme')
 
     assert_difference('Name.count', -1) do
-      delete :destroy, id: new_name
+      delete :destroy, params: { id: new_name }
     end
 
     assert_redirected_to names_path
