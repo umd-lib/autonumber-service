@@ -5,4 +5,8 @@ class Name < ActiveRecord::Base
   def to_s
     initials
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "initials", "updated_at"]
+  end
 end

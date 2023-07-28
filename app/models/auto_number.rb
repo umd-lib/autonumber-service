@@ -22,4 +22,12 @@ class AutoNumber < ActiveRecord::Base
     end
     { first: first, last: last, count: count }
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "entry_date", "id", "name_id", "repository_id", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["name", "repository"]
+  end
 end
