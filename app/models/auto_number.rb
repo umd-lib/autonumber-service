@@ -4,7 +4,7 @@ class AutoNumber < ApplicationRecord
   belongs_to :repository, autosave: true
 
   def file_name
-    "#{repository.to_s}-#{id.to_s.rjust(6, '0')}"
+    "#{repository}-#{id.to_s.rjust(6, '0')}"
   end
 
   def self.create_batch(quantity, parameters)
