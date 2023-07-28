@@ -1,5 +1,5 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: [:show, :edit, :update, :destroy]
+  before_action :set_repository, only: %i[show edit update destroy]
 
   # GET /repositories
   # GET /repositories.json

@@ -1,5 +1,5 @@
 class AutoNumbersController < ApplicationController
-  before_action :set_auto_number, only: [:show, :edit, :update, :destroy]
+  before_action :set_auto_number, only: %i[show edit update destroy]
 
   # GET /auto_numbers
   # GET /auto_numbers.json

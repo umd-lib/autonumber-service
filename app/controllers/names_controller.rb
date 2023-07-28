@@ -1,5 +1,5 @@
 class NamesController < ApplicationController
-  before_action :set_name, only: [:show, :edit, :update, :destroy]
+  before_action :set_name, only: %i[show edit update destroy]
 
   # GET /names
   # GET /names.json
