@@ -16,6 +16,7 @@ RUN apt-get update && \
                        git \
                        libpq-dev \
                        libsqlite3-dev \
+                       curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
                        nodejs && \
     apt-get clean
 
