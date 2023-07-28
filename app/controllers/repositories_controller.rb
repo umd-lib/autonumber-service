@@ -71,10 +71,10 @@ class RepositoriesController < ApplicationController
 
     def delete
       @repository.destroy
-      return true
+      true
     rescue ActiveRecord::DeleteRestrictionError
       @error_msg = 'Repository cannot be removed because it has associated Autonumbers'
-      return false
+      false
     end
 
     # Use callbacks to share common setup or constraints between actions.

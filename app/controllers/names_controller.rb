@@ -71,10 +71,10 @@ class NamesController < ApplicationController
 
     def delete
       @name.destroy
-      return true
+      true
     rescue ActiveRecord::DeleteRestrictionError
       @error_msg = 'Name cannot be removed because it has associated Autonumbers'
-      return false
+      false
     end
 
     # Use callbacks to share common setup or constraints between actions.
