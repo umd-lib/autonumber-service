@@ -73,8 +73,9 @@ group :test do
   # gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   # gem 'webdrivers'
-  gem 'rubocop'
-  gem 'rubocop-checkstyle_formatter', '~> 0.2.0', require: false
+  gem 'rubocop', '= 1.55.0', require: false
+  gem 'rubocop-rails', '= 2.20.2', require: false
+  gem 'rubocop-checkstyle_formatter', '~> 0.6.0', require: false
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'minitest-reporters'
