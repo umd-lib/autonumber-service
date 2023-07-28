@@ -9,7 +9,7 @@ class BatchController < ApplicationController
         stats = AutoNumber.create_batch(quantity, auto_number_params)
         format.html { redirect_to :batch, flash: stats }
       else
-        format.html { redirect_to :batch, flash: { errors: errors } }
+        format.html { redirect_to :batch, flash: { errors: } }
       end
     end
   end

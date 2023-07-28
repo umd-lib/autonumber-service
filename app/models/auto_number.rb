@@ -20,7 +20,7 @@ class AutoNumber < ActiveRecord::Base
       last = auto_number.id
       count += 1
     end
-    { first: first, last: last, count: count }
+    { first:, last:, count:}
   end
 
   def self.ransackable_attributes(auth_object = nil)

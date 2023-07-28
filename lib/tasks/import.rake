@@ -34,7 +34,7 @@ namespace :db do
       print '.'
       count += 1
       print count if count % 1000 == 0
-      AutoNumber.create id: id, entry_date: date, name: name_for[name_id], repository: repository_for[repository_id]
+      AutoNumber.create(id:, entry_date: date, name: name_for[name_id], repository: repository_for[repository_id])
     end
     puts "Done (#{count})"
     puts "Created #{AutoNumber.count} autonumbers from #{count} rows"

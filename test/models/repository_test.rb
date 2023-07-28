@@ -26,7 +26,7 @@ class RepositoryTest < ActiveSupport::TestCase
   test 'repository with auto_numbers cannot be deleted' do
     name = Name.create(initials: 'pme')
     repository = Repository.create(name: 'test')
-    AutoNumber.create(name: name, repository: repository)
+    AutoNumber.create(name:, repository:)
     assert_raise ActiveRecord::DeleteRestrictionError do
       repository.destroy
     end
