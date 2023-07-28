@@ -18,7 +18,7 @@ class BatchController < ApplicationController
 
     def check_params
       errors = []
-      errors.push('Quantity must be greater than 0') unless quantity > 0
+      errors.push('Quantity must be greater than 0') unless quantity.positive?
       errors.push('Name is required') if batch_params[:name_initials].blank?
       errors.push('Repository is required') if batch_params[:repository_name].blank?
       errors
