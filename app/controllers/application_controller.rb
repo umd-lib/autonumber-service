@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
     def whitelist_cas_user
-      render(file: File.join(Rails.root, 'public/403.html'), status: :forbidden, layout: false) unless authorized
+      render(file: Rails.root.join('public/403.html').to_s, status: :forbidden, layout: false) unless authorized
     end
 
     def authorized
