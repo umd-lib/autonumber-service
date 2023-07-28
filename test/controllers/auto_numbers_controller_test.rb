@@ -18,7 +18,8 @@ class AutoNumbersControllerTest < ActionController::TestCase
 
   test 'should create auto_number' do
     assert_difference('AutoNumber.count') do
-      post :create, params: { auto_number: {
+      post :create, params: {
+        auto_number: {
           entry_date: @auto_number.entry_date,
           name: { initials: @auto_number.name.initials },
           repository: { name: @auto_number.repository.name }
@@ -40,7 +41,9 @@ class AutoNumbersControllerTest < ActionController::TestCase
   end
 
   test 'should update auto_number' do
-    patch :update, params: { id: @auto_number, auto_number: {
+    patch :update, params: {
+      id: @auto_number,
+      auto_number: {
         entry_date: @auto_number.entry_date,
         name: { initials: @auto_number.name.initials },
         repository: { name: @auto_number.repository.name }
