@@ -1,5 +1,5 @@
 # Autonumber class.
-class AutoNumber < ActiveRecord::Base
+class AutoNumber < ApplicationRecord
   validates :name, presence: true
   validates :repository, presence: true
 
