@@ -20,7 +20,7 @@ class AutoNumber < ApplicationRecord
       last = auto_number.id
       count += 1
     end
-    { first:, last:, count:}
+    { first:, last:, count: }
   end
 
   def self.ransackable_attributes(_auth_object = nil)
