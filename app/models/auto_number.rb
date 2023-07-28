@@ -24,10 +24,10 @@ class AutoNumber < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ['created_at', 'entry_date', 'id', 'name_id', 'repository_id', 'updated_at']
+    %w['created_at', 'entry_date', 'id', 'name_id', 'repository_id', 'updated_at']
   end
 
   def self.ransackable_associations(auth_object = nil)
-    ['name', 'repository']
+    %w['name', 'repository']
   end
 end
