@@ -10,7 +10,7 @@ namespace :db do
 
     # Sample data
     num_repositories = 50
-    repositories = Faker::Lorem.words(num_repositories).uniq.shuffle
+    repositories = Faker::Lorem.words(number: num_repositories).uniq.shuffle
 
     repositories.each do |repo_name|
       repository = Repository.new
@@ -19,11 +19,12 @@ namespace :db do
     end
 
     num_initials = 100
-    letters = ('A'..'Z').to_a
     initials = []
     num_initials.times do
-      initials << (letters.sample + letters.sample + letters.sample)
+      initials << Faker::Name.initials(number: 3)
     end
+
+    initials = initials.uniq
 
     initials.each do |i|
       name = Name.new
@@ -36,8 +37,8 @@ namespace :db do
     entry_date = Time.zone.today - days_back
     num_entries.times do
       auto_number = AutoNumber.new
-      name = Name.find_by(initials.sample)
-      repository = Repository.find_by(repositories.sample)
+      name = Name.find_by_initials(initials.sample)
+      repository = Repository.find_by_name(repositories.sample)
       auto_number.name = name
       auto_number.repository = repository
       entry_date += 1 if rand > (days_back.to_f / num_entries)

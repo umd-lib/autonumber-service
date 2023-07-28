@@ -79,7 +79,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'minitest-reporters'
-  gem 'faker', '~> 1.6'
+  gem 'faker', '~> 3.2'
   gem 'rails-controller-testing'
 end
 
