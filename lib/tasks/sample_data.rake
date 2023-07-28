@@ -36,8 +36,8 @@ namespace :db do
     entry_date = Time.zone.today - days_back
     num_entries.times do
       auto_number = AutoNumber.new
-      name = Name.find_by_initials(initials.sample)
-      repository = Repository.find_by_name(repositories.sample)
+      name = Name.find_by(initials.sample)
+      repository = Repository.find_by(repositories.sample)
       auto_number.name = name
       auto_number.repository = repository
       entry_date += 1 if rand > (days_back.to_f / num_entries)
