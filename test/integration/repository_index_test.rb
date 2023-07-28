@@ -14,7 +14,7 @@ class RepositoryIndexTest < ActionDispatch::IntegrationTest
 
   test 'index including pagination and sorting' do
     column = 'name'
-    %w(asc desc).each do |order|
+    %w[asc desc].each do |order|
       q_param = { s: "#{column} #{order}" }
       get repositories_path, params: { q: q_param }
       assert_template 'repositories/index'
