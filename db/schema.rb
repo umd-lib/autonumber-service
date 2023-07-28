@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_28_150308) do
+ActiveRecord::Schema.define(version: 2023_07_28_181459) do
 
   create_table "auto_numbers", force: :cascade do |t|
     t.date "entry_date"
@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 2023_07_28_150308) do
     t.string "initials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["initials"], name: "index_names_on_initials", unique: true
   end
 
   create_table "repositories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_repositories_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
