@@ -1,8 +1,5 @@
 # Autonumber class.
 class AutoNumber < ApplicationRecord
-  validates :name, presence: true
-  validates :repository, presence: true
-
   belongs_to :name, autosave: true
   belongs_to :repository, autosave: true
 
