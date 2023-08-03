@@ -1,5 +1,5 @@
 class AutoNumbersController < ApplicationController
-  before_action :set_auto_number, only: [:show, :edit, :update, :destroy]
+  before_action :set_auto_number, only: %i[show edit update destroy]
 
   # GET /auto_numbers
   # GET /auto_numbers.json
@@ -80,6 +80,6 @@ class AutoNumbersController < ApplicationController
     def auto_number_params
       repository = Repository.find_or_create_by(name: params[:auto_number][:repository][:name].downcase)
       name = Name.find_or_create_by(initials: params[:auto_number][:name][:initials].downcase)
-      known_params.merge repository: repository, name: name
+      known_params.merge(repository:, name:)
     end
 end

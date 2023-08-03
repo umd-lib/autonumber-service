@@ -18,7 +18,7 @@ class RepositoryTest < ActiveSupport::TestCase
 
   test 'repository without auto_numbers can be deleted' do
     repository = Repository.create(name: 'test')
-    assert_nothing_raised ActiveRecord::DeleteRestrictionError do
+    assert_nothing_raised do
       repository.destroy
     end
   end
@@ -26,7 +26,7 @@ class RepositoryTest < ActiveSupport::TestCase
   test 'repository with auto_numbers cannot be deleted' do
     name = Name.create(initials: 'pme')
     repository = Repository.create(name: 'test')
-    AutoNumber.create(name: name, repository: repository)
+    AutoNumber.create(name:, repository:)
     assert_raise ActiveRecord::DeleteRestrictionError do
       repository.destroy
     end

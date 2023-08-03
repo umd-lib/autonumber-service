@@ -18,10 +18,12 @@ class AutoNumbersControllerTest < ActionController::TestCase
 
   test 'should create auto_number' do
     assert_difference('AutoNumber.count') do
-      post :create, auto_number: {
-        entry_date: @auto_number.entry_date,
-        name: { initials: @auto_number.name.initials },
-        repository: { name: @auto_number.repository.name }
+      post :create, params: {
+        auto_number: {
+          entry_date: @auto_number.entry_date,
+          name: { initials: @auto_number.name.initials },
+          repository: { name: @auto_number.repository.name }
+        }
       }
     end
 
@@ -29,27 +31,30 @@ class AutoNumbersControllerTest < ActionController::TestCase
   end
 
   test 'should show auto_number' do
-    get :show, id: @auto_number
+    get :show, params: { id: @auto_number }
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, id: @auto_number
+    get :edit, params: { id: @auto_number }
     assert_response :success
   end
 
   test 'should update auto_number' do
-    patch :update, id: @auto_number, auto_number: {
-      entry_date: @auto_number.entry_date,
-      name: { initials: @auto_number.name.initials },
-      repository: { name: @auto_number.repository.name }
+    patch :update, params: {
+      id: @auto_number,
+      auto_number: {
+        entry_date: @auto_number.entry_date,
+        name: { initials: @auto_number.name.initials },
+        repository: { name: @auto_number.repository.name }
+      }
     }
     assert_redirected_to auto_number_path(assigns(:auto_number))
   end
 
   test 'should destroy auto_number' do
     assert_difference('AutoNumber.count', -1) do
-      delete :destroy, id: @auto_number
+      delete :destroy, params: { id: @auto_number }
     end
 
     assert_redirected_to auto_numbers_path

@@ -6,7 +6,7 @@
 #
 # where <VERSION> is the Docker image version to create.
 
-FROM ruby:2.7.4-slim
+FROM ruby:3.2.2-slim
 
 # Install apt based dependencies required to run Rails as
 # well as RubyGems. As the Ruby image itself is based on a
@@ -16,6 +16,7 @@ RUN apt-get update && \
                        git \
                        libpq-dev \
                        libsqlite3-dev \
+                       curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
                        nodejs && \
     apt-get clean
 
@@ -39,7 +40,7 @@ ENV RAILS_ENV=production
 # are made.
 COPY --chown=app:app Gemfile Gemfile.lock /home/app/webapp/
 RUN cd /home/app/webapp && \
-    gem install bundler --version 1.17.3 && \
+    gem install bundler --version 2.4.10 && \
     bundle install --jobs 20 --retry 5 --without development test && \
     cd ..
 

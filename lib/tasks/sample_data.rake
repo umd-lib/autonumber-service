@@ -10,7 +10,7 @@ namespace :db do
 
     # Sample data
     num_repositories = 50
-    repositories = Faker::Lorem.words(num_repositories).uniq.shuffle
+    repositories = Faker::Lorem.words(number: num_repositories).uniq.shuffle
 
     repositories.each do |repo_name|
       repository = Repository.new
@@ -19,11 +19,12 @@ namespace :db do
     end
 
     num_initials = 100
-    letters = ('A'..'Z').to_a
     initials = []
     num_initials.times do
-      initials << (letters.sample + letters.sample + letters.sample)
+      initials << Faker::Name.initials(number: 3)
     end
+
+    initials = initials.uniq
 
     initials.each do |i|
       name = Name.new

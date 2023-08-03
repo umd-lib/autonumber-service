@@ -1,13 +1,10 @@
 # Autonumber class.
-class AutoNumber < ActiveRecord::Base
-  validates :name, presence: true
-  validates :repository, presence: true
-
+class AutoNumber < ApplicationRecord
   belongs_to :name, autosave: true
   belongs_to :repository, autosave: true
 
   def file_name
-    repository.to_s + '-' + id.to_s.rjust(6, '0')
+    "#{repository}-#{id.to_s.rjust(6, '0')}"
   end
 
   def self.create_batch(quantity, parameters)
@@ -20,6 +17,14 @@ class AutoNumber < ActiveRecord::Base
       last = auto_number.id
       count += 1
     end
-    { first: first, last: last, count: count }
+    { first:, last:, count: }
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[created_at entry_date id name_id repository_id updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[name repository]
   end
 end

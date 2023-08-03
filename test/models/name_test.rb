@@ -18,7 +18,7 @@ class NameTest < ActiveSupport::TestCase
 
   test 'name without auto_numbers can be deleted' do
     name = Name.create(initials: 'pme')
-    assert_nothing_raised ActiveRecord::DeleteRestrictionError do
+    assert_nothing_raised do
       name.destroy
     end
   end
@@ -26,7 +26,7 @@ class NameTest < ActiveSupport::TestCase
   test 'name with auto_numbers cannot be deleted' do
     name = Name.create(initials: 'pme')
     repository = Repository.create(name: 'test')
-    AutoNumber.create(name: name, repository: repository)
+    AutoNumber.create(name:, repository:)
     assert_raise ActiveRecord::DeleteRestrictionError do
       name.destroy
     end

@@ -1,5 +1,5 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: [:show, :edit, :update, :destroy]
+  before_action :set_repository, only: %i[show edit update destroy]
 
   # GET /repositories
   # GET /repositories.json
@@ -71,10 +71,10 @@ class RepositoriesController < ApplicationController
 
     def delete
       @repository.destroy
-      return true
+      true
     rescue ActiveRecord::DeleteRestrictionError
       @error_msg = 'Repository cannot be removed because it has associated Autonumbers'
-      return false
+      false
     end
 
     # Use callbacks to share common setup or constraints between actions.

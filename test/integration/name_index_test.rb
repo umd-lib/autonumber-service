@@ -14,9 +14,9 @@ class NameIndexTest < ActionDispatch::IntegrationTest
 
   test 'index including pagination and sorting' do
     column = 'initials'
-    %w(asc desc).each do |order|
-      q_param = { s: column + ' ' + order }
-      get names_path, q: q_param
+    %w[asc desc].each do |order|
+      q_param = { s: "#{column} #{order}" }
+      get names_path, params: { q: q_param }
       assert_template 'names/index'
       assert_select '.pagination'
       Name.ransack(q_param).result.paginate(page: 1).each do |name|

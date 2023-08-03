@@ -9,7 +9,7 @@ class BatchController < ApplicationController
         stats = AutoNumber.create_batch(quantity, auto_number_params)
         format.html { redirect_to :batch, flash: stats }
       else
-        format.html { redirect_to :batch, flash: { errors: errors } }
+        format.html { redirect_to :batch, flash: { errors: } }
       end
     end
   end
@@ -18,7 +18,7 @@ class BatchController < ApplicationController
 
     def check_params
       errors = []
-      errors.push('Quantity must be greater than 0') unless quantity > 0
+      errors.push('Quantity must be greater than 0') unless quantity.positive?
       errors.push('Name is required') if batch_params[:name_initials].blank?
       errors.push('Repository is required') if batch_params[:repository_name].blank?
       errors
@@ -30,7 +30,7 @@ class BatchController < ApplicationController
     end
 
     def auto_number_params
-      batch_params.reject { |key| %w(name_initials repository_name).include?(key) }.merge(
+      batch_params.reject { |key| %w[name_initials repository_name].include?(key) }.merge(
         repository: Repository.find_or_create_by(name: batch_params[:repository_name].downcase),
         name: Name.find_or_create_by(initials: batch_params[:name_initials].downcase)
       )

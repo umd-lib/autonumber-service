@@ -12,11 +12,11 @@ class AutoNumberIndexTest < ActionDispatch::IntegrationTest
   end
 
   test 'index including pagination and sorting' do
-    columns = %w(id entry_date name_initials repository_name)
+    columns = %w[id entry_date name_initials repository_name]
     columns.each do |column|
-      %w(asc desc).each do |order|
-        q_param = { s: column + ' ' + order }
-        get auto_numbers_path, q: q_param
+      %w[asc desc].each do |order|
+        q_param = { s: "#{column} #{order}" }
+        get auto_numbers_path, params: { q: q_param }
         assert_template 'auto_numbers/index'
         assert_select '.pagination'
         AutoNumber.ransack(q_param).result.paginate(page: 1).each do |auto_number|
