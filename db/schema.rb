@@ -43,4 +43,6 @@ ActiveRecord::Schema.define(version: 2023_07_28_181459) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "auto_numbers", "names"
+  add_foreign_key "auto_numbers", "repositories"
 end
