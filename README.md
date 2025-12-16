@@ -1,5 +1,18 @@
 # autonumber-service
 
+---
+
+## ARCHIVED REPOSITORY
+
+This repository has been archived, and is no longer being developed or
+maintained.
+
+A Django-based version of the application is at:
+
+<https://github.com/umd-lib/autonumber-django/>
+
+---
+
 Rails implementation of the Autonumber service.
 
 This is a reimplementation of the Autonumber service from the
